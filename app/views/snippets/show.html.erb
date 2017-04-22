@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+      <h1><%= @snippet.title %></h1>
+      <%= CodeRay.scan(@snippet.work, :ruby).div(:line_numbers => :table).html_safe %>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+</div>
