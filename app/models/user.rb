@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_secure_password
+
   validates :first_name, presence: true
   validates :last_name, presence: true
 
@@ -10,4 +12,11 @@ class User < ApplicationRecord
   before_validation :downcase_email
 
   has_many :snippets, dependent: :nullify
+
+  private
+
+    def downcase_email
+      self.email.downcase! if email.present?
+    end
+
 end
